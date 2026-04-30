@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотоальбом - Профиль</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">Фотоальбом</div>
+            <div class="albums-nav-btn">Мои альбомы</div>
+            <div class="search-container">
+                <form class="search-form">
+                    <input type="text" placeholder="Поиск...">
+                    <button>Найти</button>
+                </form>
+            </div>
+            <div class="profile-menu">
+                <div class="profile-icon">
+                    <img src="https://via.placeholder.com/40" alt="Аватар">
+                    <span>Иван П. ▼</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="margin-top: 30px; min-height: 500px;">
+        <div class="profile-header-block">
+            <img src="https://via.placeholder.com/120" class="profile-avatar-large">
+            <div class="profile-info">
+                <h2>Иван Петров</h2>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">156</div>
+                        <span>фото</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24</div>
+                        <span>альбома</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">187</div>
+                        <span>подписчиков</span>
+                    </div>
+                </div>
+                <button class="edit-profile-btn">Редактировать профиль</button>
+            </div>
+        </div>
+        
+        <div class="profile-tabs">
+            <button class="tab-btn active">Мои фотографии</button>
+            <button class="tab-btn">Альбомы</button>
+            <button class="tab-btn">Активность</button>
+            <button class="tab-btn">Друзья</button>
+        </div>
+        
+        <div class="user-photos-grid">
+            <div class="photo-card">
+                <div class="photo-image">
+                    <img src="https://via.placeholder.com/300x200">
+                    <span class="access-badge public">Публичный</span>
+                </div>
+                <div class="photo-info">
+                    <div class="tags">
+                        <a href="#" class="tag">город</a>
+                        <a href="#" class="tag">архитектура</a>
+                    </div>
+                    <div class="photo-stats">
+                        <button class="like-btn">Нравится 34</button>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-card">
+                <div class="photo-image">
+                    <img src="https://via.placeholder.com/300x200">
+                    <span class="access-badge friends">Для друзей</span>
+                </div>
+                <div class="photo-info">
+                    <div class="tags">
+                        <a href="#" class="tag">друзья</a>
+                        <a href="#" class="tag">вечеринка</a>
+                    </div>
+                    <div class="photo-stats">
+                        <button class="like-btn">Нравится 21</button>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-card">
+                <div class="photo-image">
+                    <img src="https://via.placeholder.com/300x200">
+                    <span class="access-badge private">Приватный</span>
+                </div>
+                <div class="photo-info">
+                    <div class="tags">
+                        <a href="#" class="tag">личное</a>
+                    </div>
+                    <div class="photo-stats">
+                        <button class="like-btn">Нравится 8</button>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-card">
+                <div class="photo-image">
+                    <img src="https://via.placeholder.com/300x200">
+                    <span class="access-badge public">Публичный</span>
+                </div>
+                <div class="photo-info">
+                    <div class="tags">
+                        <a href="#" class="tag">путешествия</a>
+                    </div>
+                    <div class="photo-stats">
+                        <button class="like-btn">Нравится 56</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Профиль макет</p>
+        </div>
+    </footer>
+</body>
+</html>
