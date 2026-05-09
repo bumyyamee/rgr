@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход — Фотоальбом</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container" style="max-width:400px; margin:100px auto; background:white; padding:30px; border-radius:5px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+    <h2 style="text-align:center; margin-bottom:20px;">Вход в Фотоальбом</h2>
+    <form id="loginForm">
+        <label for="username">Имя пользователя</label>
+        <input type="text" id="username" class="form-control" placeholder="Введите имя" required style="width:100%; padding:8px; margin-bottom:15px; border:1px solid #ddd; border-radius:3px;">
+
+        <label for="password">Пароль</label>
+        <input type="password" id="password" class="form-control" placeholder="Введите пароль" required style="width:100%; padding:8px; margin-bottom:20px; border:1px solid #ddd; border-radius:3px;">
+
+        <button type="submit" class="btn btn-primary" style="width:100%; padding:10px; background:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Войти</button>
+    </form>
+    <p style="margin-top:15px; text-align:center;">Нет аккаунта? <a href="/register.html">Зарегистрироваться</a></p>
+    <div id="error" style="color:red; text-align:center; margin-top:10px;"></div>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        try {
+            const response = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            if (!response.ok) {
+                const errText = await response.text();
+                throw new Error(errText || 'Ошибка входа');
+            }
+            const data = await response.json();
+            localStorage.setItem('token', data.token);
+            window.location.href = '/index.html';
+        } catch (error) {
+            document.getElementById('error').textContent = error.message;
+        }
+    });
+</script>
+</body>
+</html>

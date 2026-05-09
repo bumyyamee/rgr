@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотоальбом - Главная</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">Фотоальбом</div>
+            <div class="albums-nav-btn">Мои альбомы</div>
+            <div class="search-container">
+                <form class="search-form">
+                    <input type="text" placeholder="Поиск по тегам, дате или пользователю...">
+                    <button>Найти</button>
+                </form>
+            </div>
+            <div class="profile-menu">
+                <div class="profile-icon">
+                    <img src="https://via.placeholder.com/40" alt="Аватар">
+                    <span>Иван П. ▼</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <aside class="sidebar">
+            <div class="filter-section">
+                <h3>Фильтры</h3>
+                <div class="filter-group">
+                    <h4>Тип доступа</h4>
+                    <label><input type="checkbox"> Публичные</label>
+                    <label><input type="checkbox"> Для друзей</label>
+                    <label><input type="checkbox"> Приватные</label>
+                </div>
+                <div class="filter-group">
+                    <h4>Теги</h4>
+                    <label><input type="checkbox"> Природа</label>
+                    <label><input type="checkbox"> Путешествия</label>
+                    <label><input type="checkbox"> Семья</label>
+                    <label><input type="checkbox"> Друзья</label>
+                </div>
+                <div class="filter-group">
+                    <h4>Дата</h4>
+                    <input type="date" placeholder="От">
+                    <input type="date" placeholder="До">
+                </div>
+                <button class="apply-filters">Применить фильтры</button>
+            </div>
+            <div class="popular-tags">
+                <h4>Популярные теги</h4>
+                <div class="tags-cloud">
+                    <a href="#" class="tag">природа (42)</a>
+                    <a href="#" class="tag">путешествия (38)</a>
+                    <a href="#" class="tag">семья (31)</a>
+                    <a href="#" class="tag">друзья (27)</a>
+                    <a href="#" class="tag">море (25)</a>
+                </div>
+            </div>
+        </aside>
+
+        <section class="feed">
+            <div class="feed-header">
+                <h2>Лента фотографий</h2>
+                <div class="view-toggle">
+                    <button class="active">Сетка</button>
+                    <button>Список</button>
+                </div>
+            </div>
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <div class="photo-header">
+                        <img src="https://via.placeholder.com/30" class="author-avatar">
+                        <span class="author-name">Анна С.</span>
+                        <span class="photo-date">12.03.2026</span>
+                    </div>
+                    <div class="photo-image">
+                        <img src="https://via.placeholder.com/300x200">
+                        <span class="access-badge public">Публичный</span>
+                    </div>
+                    <div class="photo-info">
+                        <div class="tags">
+                            <a href="#" class="tag">природа</a>
+                            <a href="#" class="tag">море</a>
+                        </div>
+                        <div class="photo-stats">
+                            <div class="rating">
+                                <button class="like-btn">Нравится 24</button>
+                                <button class="dislike-btn">Не нравится 3</button>
+                            </div>
+                            <div class="comments-count">Комментариев 12</div>
+                        </div>
+                        <div class="photo-comment">
+                            <span class="comment-author">Михаил:</span>
+                            <span class="comment-text">Красивое фото!</span>
+                        </div>
+                        <div class="add-comment">
+                            <input type="text" placeholder="Написать комментарий...">
+                            <button>Отправить</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <div class="photo-header">
+                        <img src="https://via.placeholder.com/30" class="author-avatar">
+                        <span class="author-name">Петр В.</span>
+                        <span class="photo-date">10.03.2026</span>
+                    </div>
+                    <div class="photo-image">
+                        <img src="https://via.placeholder.com/300x200">
+                        <span class="access-badge friends">Для друзей</span>
+                    </div>
+                    <div class="photo-info">
+                        <div class="tags">
+                            <a href="#" class="tag">семья</a>
+                            <a href="#" class="tag">праздник</a>
+                        </div>
+                        <div class="photo-stats">
+                            <div class="rating">
+                                <button class="like-btn">Нравится 15</button>
+                                <button class="dislike-btn">Не нравится 1</button>
+                            </div>
+                            <div class="comments-count">Комментариев 5</div>
+                        </div>
+                        <div class="add-comment">
+                            <input type="text" placeholder="Написать комментарий...">
+                            <button>Отправить</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <div class="photo-header">
+                        <img src="https://via.placeholder.com/30" class="author-avatar">
+                        <span class="author-name">Елена К.</span>
+                        <span class="photo-date">08.03.2026</span>
+                    </div>
+                    <div class="photo-image">
+                        <img src="https://via.placeholder.com/300x200">
+                        <span class="access-badge private">Приватный</span>
+                    </div>
+                    <div class="photo-info">
+                        <div class="tags">
+                            <a href="#" class="tag">личное</a>
+                            <a href="#" class="tag">архив</a>
+                        </div>
+                        <div class="photo-stats">
+                            <div class="rating">
+                                <button class="like-btn">Нравится 8</button>
+                                <button class="dislike-btn">Не нравится 0</button>
+                            </div>
+                            <div class="comments-count">Комментариев 2</div>
+                        </div>
+                        <div class="add-comment">
+                            <input type="text" placeholder="Только друзья могут комментировать" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="load-more">
+                <button>Загрузить еще</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Фотоальбом — храните воспоминания</p>
+        </div>
+    </footer>
+</body>
+</html>
