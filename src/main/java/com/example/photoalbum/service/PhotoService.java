@@ -71,11 +71,9 @@ public class PhotoService {
         return convertToDto(photo);
     }
 
-    */
-/**
      * Получить ленту фотографий.
      * В данной упрощённой реализации возвращаются все фотографии, доступные текущему пользователю.
-     *//*
+
 
     public List<PhotoDto> getFeed(String username, String privacy, List<String> tags,
                                   String dateFrom, String dateTo, int page, int size) {
