@@ -1,3 +1,4 @@
+/*
 package com.example.photoalbum.controller;
 
 import com.example.photoalbum.config.JwtTokenProvider;
@@ -38,4 +39,4 @@ public class AuthController {
         String token = jwtTokenProvider.generateToken(auth);
         return ResponseEntity.ok(Map.of("token", token));
     }
-}
+}*/

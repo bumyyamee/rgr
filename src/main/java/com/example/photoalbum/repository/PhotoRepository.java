@@ -1,3 +1,4 @@
+/*
 package com.example.photoalbum.repository;
 
 import com.example.photoalbum.model.Photo;
@@ -51,4 +52,4 @@ public class PhotoRepository {
                 "ORDER BY p.created_at DESC LIMIT ? OFFSET ?";
         return jdbc.query(sql, new BeanPropertyRowMapper<>(Photo.class), size, page * size);
     }
-}
+}*/

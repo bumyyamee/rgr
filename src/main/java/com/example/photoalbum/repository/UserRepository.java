@@ -1,3 +1,4 @@
+/*
 package com.example.photoalbum.repository;
 
 import com.example.photoalbum.model.User;
@@ -60,4 +61,4 @@ public class UserRepository {
         return jdbc.query("SELECT * FROM users ORDER BY id LIMIT ? OFFSET ?",
                 new BeanPropertyRowMapper<>(User.class), size, page * size);
     }
-}
+}*/

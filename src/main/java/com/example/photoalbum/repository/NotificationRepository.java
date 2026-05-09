@@ -1,3 +1,4 @@
+/*
 package com.example.photoalbum.repository;
 
 import com.example.photoalbum.model.Notification;
@@ -35,4 +36,4 @@ public class NotificationRepository {
         return jdbc.query("SELECT * FROM notifications WHERE user_id = ? ORDER BY created_at DESC",
                 new BeanPropertyRowMapper<>(Notification.class), userId);
     }
-}
+}*/

@@ -1,3 +1,4 @@
+/*
 package com.example.photoalbum.controller;
 
 import com.example.photoalbum.dto.CommentDto;
@@ -36,4 +37,4 @@ public class CommentController {
         commentService.deleteComment(commentId, auth.getName());
         return ResponseEntity.ok("Comment deleted");
     }
-}
+}*/

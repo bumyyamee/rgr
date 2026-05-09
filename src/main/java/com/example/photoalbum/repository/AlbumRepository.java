@@ -1,3 +1,4 @@
+/*
 package com.example.photoalbum.repository;
 
 import com.example.photoalbum.model.Album;
@@ -87,4 +88,4 @@ public class AlbumRepository {
             return Optional.empty();
         }
     }
-}
+}*/

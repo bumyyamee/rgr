@@ -1,4 +1,5 @@
-/* ========== ОСНОВНЫЕ СТИЛИ ========== */
+/*
+!* ========== ОСНОВНЫЕ СТИЛИ ========== *!
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +18,7 @@ body {
     padding: 0 20px;
 }
 
-/* ========== ШАПКА ========== */
+!* ========== ШАПКА ========== *!
 .header {
     background-color: #fff;
     border-bottom: 1px solid #ddd;
@@ -86,7 +87,7 @@ body {
     border-radius: 50%;
 }
 
-/* ========== ОСНОВНОЙ КОНТЕНТ ========== */
+!* ========== ОСНОВНОЙ КОНТЕНТ ========== *!
 .main-content {
     display: flex;
     gap: 30px;
@@ -94,7 +95,7 @@ body {
     min-height: 500px;
 }
 
-/* ========== САЙДБАР ========== */
+!* ========== САЙДБАР ========== *!
 .sidebar {
     flex: 0 0 280px;
     background-color: white;
@@ -171,7 +172,7 @@ body {
     font-size: 12px;
 }
 
-/* ========== ЛЕНТА ========== */
+!* ========== ЛЕНТА ========== *!
 .feed {
     flex: 1;
 }
@@ -348,7 +349,7 @@ body {
     cursor: default;
 }
 
-/* ========== СТРАНИЦА АЛЬБОМОВ ========== */
+!* ========== СТРАНИЦА АЛЬБОМОВ ========== *!
 .album-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -409,7 +410,7 @@ body {
     cursor: default;
 }
 
-/* ========== СТРАНИЦА ПРОФИЛЯ ========== */
+!* ========== СТРАНИЦА ПРОФИЛЯ ========== *!
 .profile-header-block {
     background: white;
     border: 1px solid #ddd;
@@ -481,7 +482,7 @@ body {
     gap: 20px;
 }
 
-/* ========== АДМИН-ПАНЕЛЬ ========== */
+!* ========== АДМИН-ПАНЕЛЬ ========== *!
 .admin-container {
     display: flex;
     gap: 30px;
@@ -591,7 +592,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* ========== ПОДВАЛ ========== */
+!* ========== ПОДВАЛ ========== *!
 .footer {
     background-color: white;
     padding: 20px;
@@ -601,7 +602,7 @@ body {
     color: #999;
 }
 
-/* ========== АДАПТИВНОСТЬ ========== */
+!* ========== АДАПТИВНОСТЬ ========== *!
 @media (max-width: 768px) {
     .main-content, .admin-container {
         flex-direction: column;
@@ -618,4 +619,4 @@ body {
     .search-form input {
         width: 150px;
     }
-}
+}*/

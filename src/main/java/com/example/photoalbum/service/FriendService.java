@@ -1,3 +1,4 @@
+/*
 package com.example.photoalbum.service;
 
 import com.example.photoalbum.exception.ResourceNotFoundException;
@@ -65,4 +66,4 @@ public class FriendService {
                         .filter(f -> "ACCEPTED".equals(f.getStatus()))
                         .isPresent();
     }
-}
+}*/

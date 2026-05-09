@@ -1,3 +1,4 @@
+/*
 package com.example.photoalbum.controller;
 
 import com.example.photoalbum.dto.UserDto;
@@ -30,4 +31,4 @@ public class UserController {
         userService.updateProfile(id, dto, auth.getName());
         return ResponseEntity.ok("Profile updated");
     }
-}
+}*/

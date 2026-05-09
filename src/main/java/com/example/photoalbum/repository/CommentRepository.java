@@ -1,3 +1,4 @@
+/*
 package com.example.photoalbum.repository;
 
 import com.example.photoalbum.model.Comment;
@@ -49,4 +50,4 @@ public class CommentRepository {
             return Optional.empty();
         }
     }
-}
+}*/

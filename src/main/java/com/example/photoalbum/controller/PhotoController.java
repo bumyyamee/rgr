@@ -1,3 +1,4 @@
+/*
 package com.example.photoalbum.controller;
 
 import com.example.photoalbum.dto.PhotoDto;
@@ -63,4 +64,4 @@ public class PhotoController {
         photoService.ratePhoto(id, auth.getName(), value);
         return ResponseEntity.ok("Rated");
     }
-}
+}*/

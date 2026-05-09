@@ -1,3 +1,4 @@
+/*
 package com.example.photoalbum.service;
 
 import com.example.photoalbum.model.User;
@@ -55,4 +56,4 @@ public class EmailService {
         message.setText("Пользователь " + fromUsername + " хочет добавить вас в друзья.");
         mailSender.send(message);
     }
-}
+}*/

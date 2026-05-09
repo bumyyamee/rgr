@@ -1,3 +1,4 @@
+/*
 package com.example.photoalbum.model;
 
 import java.sql.Timestamp;
@@ -30,4 +31,4 @@ public class Album {
     public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
     public Timestamp getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(Timestamp updatedAt) { this.updatedAt = updatedAt; }
-}
+}*/

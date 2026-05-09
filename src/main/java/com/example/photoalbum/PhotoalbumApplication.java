@@ -1,3 +1,4 @@
+/*
 package com.example.photoalbum;
 
 import org.springframework.boot.SpringApplication;
@@ -8,4 +9,4 @@ public class PhotoalbumApplication {
     public static void main(String[] args) {
         SpringApplication.run(PhotoalbumApplication.class, args);
     }
-}
+}*/
