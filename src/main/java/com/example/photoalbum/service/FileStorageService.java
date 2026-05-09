@@ -16,9 +16,7 @@ public class FileStorageService {
     private String uploadDir;
 
     */
-/**
-     * Сохраняет загруженный файл на диск и возвращает уникальное имя сохранённого файла.
-     *//*
+/*
 
     public String store(MultipartFile file) {
         try {
@@ -43,10 +41,8 @@ public class FileStorageService {
         }
     }
 
-    */
-/**
+
      * Создаёт копию файла с новым именем. Возвращает имя нового файла.
-     *//*
 
     public String copy(String filename) {
         try {
@@ -69,10 +65,9 @@ public class FileStorageService {
         }
     }
 
-    */
-/**
-     * Удаляет файл с диска.
-     *//*
+
+Удаляет файл с диска.
+
 
     public void delete(String filename) {
         try {
