@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.service;
 
 import com.example.photoalbum.dto.PhotoDto;
@@ -42,10 +41,9 @@ public class PhotoService {
         this.emailService = emailService;
     }
 
-
+    /**
      * Загрузка фото в альбом.
-
-
+     */
     @Transactional
     public PhotoDto upload(MultipartFile file, Long albumId, String username) {
         User user = userRepository.findByUsername(username)
@@ -71,10 +69,10 @@ public class PhotoService {
         return convertToDto(photo);
     }
 
+    /**
      * Получить ленту фотографий.
      * В данной упрощённой реализации возвращаются все фотографии, доступные текущему пользователю.
-
-
+     */
     public List<PhotoDto> getFeed(String username, String privacy, List<String> tags,
                                   String dateFrom, String dateTo, int page, int size) {
         // В реальном приложении здесь должна быть сложная фильтрация по приватности, тегам, датам.
@@ -83,10 +81,9 @@ public class PhotoService {
         return photos.stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
-
+    /**
      * Получить фотографию по ID.
-
-
+     */
     public PhotoDto getPhotoById(Long id, String username) {
         Photo photo = photoRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Фото не найдено"));
@@ -94,10 +91,9 @@ public class PhotoService {
         return convertToDto(photo);
     }
 
-
+    /**
      * Удалить фотографию (доступно владельцу, модератору, админу).
-
-
+     */
     @Transactional
     public void deletePhoto(Long id, String username) {
         User user = userRepository.findByUsername(username)
@@ -118,9 +114,9 @@ public class PhotoService {
         photoRepository.delete(id);
     }
 
+    /**
      * Копировать фото в свой альбом.
-
-
+     */
     @Transactional
     public PhotoDto copyPhoto(Long photoId, Long targetAlbumId, String username) {
         User user = userRepository.findByUsername(username)
@@ -150,10 +146,9 @@ public class PhotoService {
         return convertToDto(newPhoto);
     }
 
-
+    /**
      * Оценить фотографию (1 - лайк, -1 - дизлайк).
-
-
+     */
     @Transactional
     public void ratePhoto(Long photoId, String username, int value) {
         User user = userRepository.findByUsername(username)
@@ -190,10 +185,9 @@ public class PhotoService {
         }
     }
 
-
+    /**
      * Преобразование Photo в PhotoDto.
-
-
+     */
     private PhotoDto convertToDto(Photo photo) {
         PhotoDto dto = new PhotoDto();
         dto.setId(photo.getId());
@@ -209,4 +203,4 @@ public class PhotoService {
         dto.setCreatedAt(photo.getCreatedAt());
         return dto;
     }
-}*/
+}

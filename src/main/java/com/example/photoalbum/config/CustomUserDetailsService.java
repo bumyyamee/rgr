@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.config;
 
 import com.example.photoalbum.model.User;
@@ -26,4 +25,4 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .roles(user.getRole())
                 .build();
     }
-}*/
+}

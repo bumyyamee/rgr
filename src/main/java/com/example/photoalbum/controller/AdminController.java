@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.controller;
 
 import com.example.photoalbum.dto.UserDto;
@@ -46,4 +45,4 @@ public class AdminController {
         reportRepository.updateStatus(id, action);
         return ResponseEntity.ok("Report handled");
     }
-}*/
+}

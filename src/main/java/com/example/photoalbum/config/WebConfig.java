@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.config;
 
 import org.springframework.context.annotation.Configuration;
@@ -20,4 +19,4 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/uploads/**")
                 .addResourceLocations("file:uploads/");
     }
-}*/
+}

@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.model;
 
 import java.sql.Timestamp;
@@ -22,4 +21,4 @@ public class Comment {
     public void setContent(String content) { this.content = content; }
     public Timestamp getCreatedAt() { return createdAt; }
     public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
-}*/
+}

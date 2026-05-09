@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.dto;
 
 import java.sql.Timestamp;
@@ -19,4 +18,4 @@ public class CommentDto {
     public void setAuthorUsername(String authorUsername) { this.authorUsername = authorUsername; }
     public Timestamp getCreatedAt() { return createdAt; }
     public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
-}*/
+}

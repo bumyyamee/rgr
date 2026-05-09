@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.service;
 
 import com.example.photoalbum.dto.CommentDto;
@@ -75,4 +74,4 @@ public class CommentService {
                 .ifPresent(u -> dto.setAuthorUsername(u.getUsername()));
         return dto;
     }
-}*/
+}

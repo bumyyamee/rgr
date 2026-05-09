@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.exception;
 
 import org.springframework.http.HttpStatus;
@@ -17,4 +16,4 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleNotFound(ResourceNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
-}*/
+}

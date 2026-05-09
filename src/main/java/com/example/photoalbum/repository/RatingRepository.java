@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.repository;
 
 import com.example.photoalbum.model.Rating;
@@ -62,4 +61,4 @@ public class RatingRepository {
                 "SELECT COUNT(*) FROM ratings WHERE photo_id = ? AND value = -1", Integer.class, photoId);
         return count != null ? count : 0;
     }
-}*/
+}

@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.repository;
 
 import com.example.photoalbum.model.Friendship;
@@ -62,4 +61,4 @@ public class FriendshipRepository {
                 "SELECT * FROM friendships WHERE friend_id = ? AND status = 'PENDING'",
                 new BeanPropertyRowMapper<>(Friendship.class), userId);
     }
-}*/
+}

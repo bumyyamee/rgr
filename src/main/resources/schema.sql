@@ -1,4 +1,4 @@
-/*CREATE TYPE user_role AS ENUM ('USER', 'MODERATOR', 'ADMIN');
+CREATE TYPE user_role AS ENUM ('USER', 'MODERATOR', 'ADMIN');
 CREATE TYPE privacy_type AS ENUM ('PUBLIC', 'FRIENDS', 'PRIVATE');
 CREATE TYPE friendship_status AS ENUM ('PENDING', 'ACCEPTED', 'DECLINED');
 
@@ -43,7 +43,7 @@ CREATE TABLE album_photos (
                               photo_id INT NOT NULL REFERENCES photos(id) ON DELETE CASCADE,
                               added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                               PRIMARY KEY (album_id, photo_id)
-);*/
+);
 
 CREATE TABLE photo_tags (
                             photo_id INT NOT NULL REFERENCES photos(id) ON DELETE CASCADE,

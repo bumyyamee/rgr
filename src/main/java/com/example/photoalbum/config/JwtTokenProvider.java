@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.config;
 
 import io.jsonwebtoken.*;
@@ -37,4 +36,4 @@ public class JwtTokenProvider {
             return false;
         }
     }
-}*/
+}

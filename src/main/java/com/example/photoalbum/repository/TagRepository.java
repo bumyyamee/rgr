@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.repository;
 
 import com.example.photoalbum.model.Tag;
@@ -56,4 +55,4 @@ public class TagRepository {
         jdbc.update("INSERT INTO photo_tags (photo_id, tag_id) VALUES (?, ?) ON CONFLICT DO NOTHING",
                 photoId, tagId);
     }
-}*/
+}

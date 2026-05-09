@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.repository;
 
 import com.example.photoalbum.model.Report;
@@ -51,4 +50,4 @@ public class ReportRepository {
             return Optional.empty();
         }
     }
-}*/
+}

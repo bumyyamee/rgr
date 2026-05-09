@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.config;
 
 import jakarta.servlet.FilterChain;
@@ -49,4 +48,4 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
         return null;
     }
-}*/
+}

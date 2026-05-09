@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.controller;
 
 import com.example.photoalbum.model.User;
@@ -48,4 +47,4 @@ public class FriendController {
         // Но в контроллер можно инжектить UserService.
         return userService.getCurrentUser(auth.getName()).getId();
     }
-}*/
+}

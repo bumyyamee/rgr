@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.model;
 
 import java.sql.Timestamp;
@@ -22,4 +21,4 @@ public class Notification {
     public void setRead(boolean read) { isRead = read; }
     public Timestamp getCreatedAt() { return createdAt; }
     public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
-}*/
+}

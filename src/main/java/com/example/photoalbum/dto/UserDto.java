@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.dto;
 
 public class UserDto {
@@ -20,4 +19,4 @@ public class UserDto {
     public void setRole(String role) { this.role = role; }
     public String getAvatarPath() { return avatarPath; }
     public void setAvatarPath(String avatarPath) { this.avatarPath = avatarPath; }
-}*/
+}

@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.service;
 
 import com.example.photoalbum.dto.RegisterRequest;
@@ -86,4 +85,4 @@ public class UserService {
         dto.setAvatarPath(u.getAvatarPath());
         return dto;
     }
-}*/
+}

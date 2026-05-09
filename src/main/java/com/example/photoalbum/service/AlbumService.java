@@ -1,4 +1,3 @@
-/*
 package com.example.photoalbum.service;
 
 import com.example.photoalbum.dto.AlbumDto;
@@ -73,4 +72,4 @@ public class AlbumService {
         dto.setCreatedAt(album.getCreatedAt());
         return dto;
     }
-}*/
+}
