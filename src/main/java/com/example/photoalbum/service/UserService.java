@@ -52,11 +52,11 @@ public class UserService {
                 .getId();
     }
 
-    public List<UserDto> getAllUsers(int page, int size) {
-        return userRepository.findAll(page, size).stream()
-                .map(this::convertToDto)
-                .collect(Collectors.toList());
-    }
+//    public List<UserDto> getAllUsers(int page, int size) {
+//        return userRepository.findAll(page, size).stream()
+//                .map(this::convertToDto)
+//                .collect(Collectors.toList());
+//    }
 
     public void updateRole(Long userId, String role) {
         User user = userRepository.findById(userId)
