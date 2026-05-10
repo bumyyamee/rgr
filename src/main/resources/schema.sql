@@ -19,12 +19,13 @@ CREATE TABLE tags (
 );
 
 CREATE TABLE photos (
-                        id SERIAL PRIMARY KEY,
-                        user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-                        file_path VARCHAR(255) NOT NULL,
-                        thumbnail_path VARCHAR(255),
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    file_path VARCHAR(255) NOT NULL,
+    thumbnail_path VARCHAR(255),
+    privacy privacy_type NOT NULL DEFAULT 'PRIVATE', 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE albums (
