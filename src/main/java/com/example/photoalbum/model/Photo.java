@@ -7,6 +7,7 @@ public class Photo {
     private Long userId;
     private String filePath;
     private String thumbnailPath;
+    private String privacy;   // !!
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
@@ -20,6 +21,8 @@ public class Photo {
     public void setFilePath(String filePath) { this.filePath = filePath; }
     public String getThumbnailPath() { return thumbnailPath; }
     public void setThumbnailPath(String thumbnailPath) { this.thumbnailPath = thumbnailPath; }
+    public String getPrivacy() { return privacy; } //!!
+    public void setPrivacy(String privacy) { this.privacy = privacy; }
     public Timestamp getCreatedAt() { return createdAt; }
     public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
     public Timestamp getUpdatedAt() { return updatedAt; }

@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
+
 import java.sql.Timestamp;
 import java.util.*;
 
@@ -26,6 +27,7 @@ public class PhotoRepository {
         params.put("user_id", photo.getUserId());
         params.put("file_path", photo.getFilePath());
         params.put("thumbnail_path", photo.getThumbnailPath());
+        params.put("privacy", photo.getPrivacy());
         Timestamp now = new Timestamp(System.currentTimeMillis());
         params.put("created_at", now);
         params.put("updated_at", now);
@@ -41,14 +43,17 @@ public class PhotoRepository {
                 new BeanPropertyRowMapper<>(Photo.class), albumId);
     }
 
-    // Для ленты с фильтрацией (упрощённая версия)
     public List<Photo> findPublicFeed(Long userId, Set<Long> tagIds, Timestamp from, Timestamp to, int page, int size) {
-        // В реальности здесь сложный динамический SQL, для примера вернём все публичные фото.
         String sql = "SELECT DISTINCT p.* FROM photos p " +
                 "JOIN album_photos ap ON p.id = ap.photo_id " +
                 "JOIN albums a ON a.id = ap.album_id " +
                 "WHERE a.privacy = 'PUBLIC' " +
                 "ORDER BY p.created_at DESC LIMIT ? OFFSET ?";
         return jdbc.query(sql, new BeanPropertyRowMapper<>(Photo.class), size, page * size);
+    }
+
+    public List<Photo> findAllForFeed(int page, int size) {    //теперь фильтруется в сервисе
+        return jdbc.query("SELECT * FROM photos ORDER BY created_at DESC LIMIT ? OFFSET ?",
+                new BeanPropertyRowMapper<>(Photo.class), size, page * size);
     }
 }

@@ -13,6 +13,7 @@ public class PhotoDto {
     private int dislikes;
     private Integer currentUserVote;
     private List<String> tags;
+    private String privacy;
     private Timestamp createdAt;
 
     public PhotoDto() {}
@@ -35,6 +36,8 @@ public class PhotoDto {
     public void setCurrentUserVote(Integer currentUserVote) { this.currentUserVote = currentUserVote; }
     public List<String> getTags() { return tags; }
     public void setTags(List<String> tags) { this.tags = tags; }
+    public String getPrivacy() { return privacy; }
+    public void setPrivacy(String privacy) { this.privacy = privacy; }
     public Timestamp getCreatedAt() { return createdAt; }
     public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
 }
