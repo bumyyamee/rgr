@@ -14,9 +14,7 @@ public class FileStorageService {
     @Value("${app.upload.dir}")
     private String uploadDir;
 
-    /**
-     * Сохраняет загруженный файл на диск и возвращает уникальное имя сохранённого файла.
-     */
+    
     public String store(MultipartFile file) {
         try {
             Path dir = Paths.get(uploadDir);
@@ -40,9 +38,7 @@ public class FileStorageService {
         }
     }
 
-    /**
-     * Создаёт копию файла с новым именем. Возвращает имя нового файла.
-     */
+    
     public String copy(String filename) {
         try {
             Path source = Paths.get(uploadDir, filename);
@@ -64,15 +60,13 @@ public class FileStorageService {
         }
     }
 
-    /**
-     * Удаляет файл с диска.
-     */
+   
     public void delete(String filename) {
         try {
             Path filePath = Paths.get(uploadDir, filename);
             Files.deleteIfExists(filePath);
         } catch (IOException e) {
-            // Игнорируем ошибку при удалении (файл может быть уже удалён)
+         //не обрабатывать
         }
     }
 }
