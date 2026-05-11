@@ -33,7 +33,7 @@ async function apiRequest(url, method = 'GET', body = null) {
 
     const response = await fetch(url, config);
 
-    // Если токен истёк или недействителен — на логин
+    //на логин кидает при 401ош (истек напр)
     if (response.status === 401) {
         removeToken();
         window.location.href = '/login.html';

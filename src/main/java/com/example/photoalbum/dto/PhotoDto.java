@@ -9,9 +9,9 @@ public class PhotoDto {
     private String thumbnailPath;
     private String authorUsername;
     private Long authorId;
-    private int likes;
-    private int dislikes;
-    private Integer currentUserVote;
+    private double averageRating;   // по идее 0 если нет оценок
+    private int ratingCount;        
+    private Integer currentUserVote; // для отслеживания текущей оценки
     private List<String> tags;
     private String privacy;
     private Timestamp createdAt;
@@ -28,10 +28,10 @@ public class PhotoDto {
     public void setAuthorUsername(String authorUsername) { this.authorUsername = authorUsername; }
     public Long getAuthorId() { return authorId; }
     public void setAuthorId(Long authorId) { this.authorId = authorId; }
-    public int getLikes() { return likes; }
-    public void setLikes(int likes) { this.likes = likes; }
-    public int getDislikes() { return dislikes; }
-    public void setDislikes(int dislikes) { this.dislikes = dislikes; }
+    public double getAverageRating() { return averageRating; }
+    public void setAverageRating(double averageRating) { this.averageRating = averageRating; }
+    public int getRatingCount() { return ratingCount; }
+    public void setRatingCount(int ratingCount) { this.ratingCount = ratingCount; }
     public Integer getCurrentUserVote() { return currentUserVote; }
     public void setCurrentUserVote(Integer currentUserVote) { this.currentUserVote = currentUserVote; }
     public List<String> getTags() { return tags; }

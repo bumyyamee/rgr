@@ -38,13 +38,12 @@ public class EmailService {
     }
 
     public void sendRatingNotification(User photoOwner, String photoId, String raterUsername, int value) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(from);
-        message.setTo(photoOwner.getEmail());
-        String action = value == 1 ? "понравилась" : "не понравилась";
-        message.setSubject("Новая оценка вашего фото #" + photoId);
-        message.setText("Пользователю " + raterUsername + " " + action + " ваша фотография.");
-        mailSender.send(message);
+    SimpleMailMessage message = new SimpleMailMessage();
+    message.setFrom(from);
+    message.setTo(photoOwner.getEmail());
+    message.setSubject("Новая оценка вашего фото #" + photoId);
+    message.setText("Пользователь " + raterUsername + " оценил ваше фото на " + value + " баллов.");
+    mailSender.send(message);
     }
 
     public void sendFriendRequestNotification(User toUser, String fromUsername) {

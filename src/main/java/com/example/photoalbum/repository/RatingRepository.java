@@ -50,15 +50,30 @@ public class RatingRepository {
         jdbc.update("DELETE FROM ratings WHERE id = ?", id);
     }
 
-    public int countLikes(Long photoId) {
+    
+    public double getAverageRating(Long photoId) {
+        Double avg = jdbc.queryForObject(
+                "SELECT COALESCE(AVG(value), 0.0) FROM ratings WHERE photo_id = ?",
+                Double.class, photoId);
+        return avg != null ? Math.round(avg * 10.0) / 10.0 : 0.0;
+    }
+
+    //общее колво
+    public int getRatingCount(Long photoId) {
         Integer count = jdbc.queryForObject(
-                "SELECT COUNT(*) FROM ratings WHERE photo_id = ? AND value = 1", Integer.class, photoId);
+                "SELECT COUNT(*) FROM ratings WHERE photo_id = ?", Integer.class, photoId);
         return count != null ? count : 0;
     }
 
-    public int countDislikes(Long photoId) {
-        Integer count = jdbc.queryForObject(
-                "SELECT COUNT(*) FROM ratings WHERE photo_id = ? AND value = -1", Integer.class, photoId);
-        return count != null ? count : 0;
+    //текущ
+    public Integer findUserRating(Long photoId, Long userId) {
+        try {
+            Integer value = jdbc.queryForObject(
+                    "SELECT value FROM ratings WHERE photo_id = ? AND user_id = ?",
+                    Integer.class, photoId, userId);
+            return value;
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
