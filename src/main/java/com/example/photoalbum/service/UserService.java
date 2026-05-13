@@ -8,6 +8,9 @@ import com.example.photoalbum.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class UserService {
     private final UserRepository userRepository;
@@ -37,38 +40,44 @@ public class UserService {
     }
 
     public UserDto getUserById(Long id) {
-        User u = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        User u = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
         return convertToDto(u);
     }
 
-    public UserDto getCurrentUser(String username) {
-        User u = userRepository.findByUsername(username).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+    // по почтее
+    public UserDto getCurrentUser(String email) {
+        User u = userRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with email: " + email));
         return convertToDto(u);
     }
 
-    public Long getUserIdByUsername(String username) {
-        return userRepository.findByUsername(username)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"))
+    // по почте ищем а не по нику
+    public Long getUserIdByEmail(String email) {
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with email: " + email))
                 .getId();
     }
 
-//    public List<UserDto> getAllUsers(int page, int size) {
-//        return userRepository.findAll(page, size).stream()
-//                .map(this::convertToDto)
-//                .collect(Collectors.toList());
-//    }
+    
+    public List<UserDto> getAllUsers(int page, int size) {
+        return userRepository.findAll(page, size).stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
 
     public void updateRole(Long userId, String role) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
-        user.setRole(role.toUpperCase());
+        user.setRole(role.toUpperCase().replaceAll("\"", ""));
         userRepository.update(user);
     }
 
-    public void updateProfile(Long userId, UserDto dto, String username) {
+    // по почте сравниваем а не нику 
+    public void updateProfile(Long userId, UserDto dto, String email) {
         User current = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
-        if (!current.getUsername().equals(username) && !current.getRole().equals("ADMIN")) {
+        if (!current.getEmail().equals(email) && !current.getRole().equals("ADMIN")) {
             throw new RuntimeException("Access denied");
         }
         current.setEmail(dto.getEmail());

@@ -24,7 +24,6 @@ public class FriendService {
     @Transactional
     public void sendFriendRequest(Long fromUserId, Long toUserId) {
         if (fromUserId.equals(toUserId)) throw new RuntimeException("Cannot friend yourself");
-        // проверяем, существует ли уже запрос
         friendshipRepository.findByUserAndFriend(fromUserId, toUserId).ifPresent(f -> {
             throw new RuntimeException("Friendship already exists or request sent");
         });
@@ -32,13 +31,17 @@ public class FriendService {
         friendship.setUserId(fromUserId);
         friendship.setFriendId(toUserId);
         friendship.setStatus("PENDING");
+
+
+        
         friendshipRepository.save(friendship);
     }
 
+    //ищем дружбу
     @Transactional
-    public void acceptRequest(Long requestId, Long currentUserId) {
-        Friendship friendship = friendshipRepository.findByUserAndFriend(requestId, currentUserId)
-                .orElseThrow(() -> new ResourceNotFoundException("Friendship request not found"));
+    public void acceptRequest(Long friendshipId, Long currentUserId) {
+        Friendship friendship = friendshipRepository.findById(friendshipId)
+                .orElseThrow(() -> new ResourceNotFoundException("Friendship request not found with id: " + friendshipId));
         if (!friendship.getFriendId().equals(currentUserId))
             throw new RuntimeException("Not your request to accept");
         if (!"PENDING".equals(friendship.getStatus()))

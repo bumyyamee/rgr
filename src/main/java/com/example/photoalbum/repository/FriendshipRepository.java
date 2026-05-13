@@ -17,6 +17,18 @@ public class FriendshipRepository {
         this.jdbc = jdbc;
     }
 
+    // поиск дружбы по айди
+    public Optional<Friendship> findById(Long id) {
+        try {
+            Friendship f = jdbc.queryForObject(
+                    "SELECT * FROM friendships WHERE id = ?",
+                    new BeanPropertyRowMapper<>(Friendship.class), id);
+            return Optional.ofNullable(f);
+        } catch (Exception e) {
+            return Optional.empty();
+        }
+    }
+
     public Optional<Friendship> findByUserAndFriend(Long userId, Long friendId) {
         try {
             Friendship f = jdbc.queryForObject(
@@ -50,7 +62,6 @@ public class FriendshipRepository {
     }
 
     public List<Friendship> getFriends(Long userId) {
-        // accepted friends (both directions)
         return jdbc.query(
                 "SELECT * FROM friendships WHERE (user_id = ? OR friend_id = ?) AND status = 'ACCEPTED'",
                 new BeanPropertyRowMapper<>(Friendship.class), userId, userId);
