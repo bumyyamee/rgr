@@ -28,9 +28,27 @@ public class SecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests(auth -> auth
+                        // Разрешённые страницы и ресурсы для всех
+                        .requestMatchers(
+                                "/",
+                                "/index.html",
+                                "/login.html",
+                                "/register.html",
+                                "/albums.html",
+                                "/profile.html",
+                                "/admin.html",
+                                "/style.css",
+                                "/css/**",
+                                "/js/**",
+                                "/uploads/**"
+                        ).permitAll()
+                        // API аутентификации
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/photos/**", "/api/albums/**").permitAll()//для незарег
+                        // Публичные GET-запросы к фото и альбомам
+                        .requestMatchers(HttpMethod.GET, "/api/photos/**", "/api/albums/**").permitAll()
+                        // Админ-панель
                         .requestMatchers("/api/admin/**").hasAnyRole("ADMIN", "MODERATOR")
+                        // Всё остальное требует аутентификации
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);

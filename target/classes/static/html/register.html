@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация — Фотоальбом</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <div class="container" style="max-width:400px; margin:100px auto; background:white; padding:30px; border-radius:5px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
@@ -26,29 +26,7 @@
     <div id="success" style="color:green; text-align:center; margin-top:10px;"></div>
 </div>
 
-<script>
-    document.getElementById('registerForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const username = document.getElementById('username').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        try {
-            const response = await fetch('/api/auth/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, email, password })
-            });
-            if (!response.ok) {
-                const errText = await response.text();
-                throw new Error(errText || 'Ошибка регистрации');
-            }
-            document.getElementById('success').textContent = 'Регистрация прошла успешно! Перенаправляем на страницу входа...';
-            setTimeout(() => { window.location.href = '/login.html'; }, 2000);
-        } catch (error) {
-            document.getElementById('error').textContent = error.message;
-        }
-    });
-</script>
+<script src="/js/api.js"></script>
+<script src="/js/register.js"></script> //скрипты в js
 </body>
 </html>

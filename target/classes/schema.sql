@@ -19,12 +19,13 @@ CREATE TABLE tags (
 );
 
 CREATE TABLE photos (
-                        id SERIAL PRIMARY KEY,
-                        user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-                        file_path VARCHAR(255) NOT NULL,
-                        thumbnail_path VARCHAR(255),
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    file_path VARCHAR(255) NOT NULL,
+    thumbnail_path VARCHAR(255),
+    privacy privacy_type NOT NULL DEFAULT 'PRIVATE', 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE albums (
@@ -52,12 +53,12 @@ CREATE TABLE photo_tags (
 );
 
 CREATE TABLE ratings (
-                         id SERIAL PRIMARY KEY,
-                         user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-                         photo_id INT NOT NULL REFERENCES photos(id) ON DELETE CASCADE,
-                         value SMALLINT NOT NULL CHECK (value IN (-1, 1)),
-                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                         UNIQUE (user_id, photo_id)
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    photo_id INT NOT NULL REFERENCES photos(id) ON DELETE CASCADE,
+    value SMALLINT NOT NULL CHECK (value >= 1 AND value <= 10), //у нас от 1 до 10 а не дизы
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (user_id, photo_id)
 );
 
 CREATE TABLE comments (

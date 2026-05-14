@@ -9,6 +9,7 @@
 /workspaces/rgr/src/main/java/com/example/photoalbum/model/Rating.java
 /workspaces/rgr/src/main/java/com/example/photoalbum/service/FriendService.java
 /workspaces/rgr/src/main/java/com/example/photoalbum/repository/NotificationRepository.java
+/workspaces/rgr/src/main/java/com/example/photoalbum/controller/AlbumController.java
 /workspaces/rgr/src/main/java/com/example/photoalbum/repository/PhotoRepository.java
 /workspaces/rgr/src/main/java/com/example/photoalbum/service/EmailService.java
 /workspaces/rgr/src/main/java/com/example/photoalbum/service/CommentService.java
