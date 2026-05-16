@@ -45,7 +45,7 @@ body {
     background: #f0f2f5;
     border-radius: 5px;
     padding: 8px 15px;
-    cursor: default;
+    cursor: pointer;
 }
 
 .albums-nav-btn.active {
@@ -70,20 +70,71 @@ body {
     background-color: #3498db;
     color: white;
     border: none;
-    cursor: default;
+    cursor: pointer;
+}
+
+/* ========== НАВИГАЦИЯ ========== */
+.header-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-link {
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #666;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.nav-link.active {
+    background: #3498db20;
+    color: #3498db;
+}
+
+.nav-link:hover {
+    background: #f0f0f0;
+}
+
+/* ========== МЕНЮ ПОЛЬЗОВАТЕЛЯ ========== */
+.profile-menu {
+    position: relative;
 }
 
 .profile-icon {
     display: flex;
     align-items: center;
     gap: 10px;
-    cursor: default;
+    cursor: pointer;
 }
 
 .profile-icon img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    min-width: 160px;
+    z-index: 200;
+}
+
+.profile-dropdown a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+.profile-dropdown a:hover {
+    background: #f0f0f0;
 }
 
 /* ========== ОСНОВНОЙ КОНТЕНТ ========== */
@@ -123,7 +174,7 @@ body {
 .filter-group label {
     display: block;
     margin-bottom: 8px;
-    cursor: default;
+    cursor: pointer;
 }
 
 .filter-group input[type="checkbox"] {
@@ -144,7 +195,7 @@ body {
     color: white;
     border: none;
     border-radius: 5px;
-    cursor: default;
+    cursor: pointer;
 }
 
 .popular-tags {
@@ -169,6 +220,22 @@ body {
     color: #666;
     text-decoration: none;
     font-size: 12px;
+    cursor: pointer;
+}
+
+.tags-cloud .tag.active {
+    background-color: #3498db;
+    color: white;
+}
+
+.filter-tag {
+    cursor: pointer;
+    user-select: none;
+}
+
+.filter-tag.active {
+    background-color: #3498db !important;
+    color: white !important;
 }
 
 /* ========== ЛЕНТА ========== */
@@ -187,7 +254,7 @@ body {
     padding: 6px 12px;
     background-color: white;
     border: 1px solid #ddd;
-    cursor: default;
+    cursor: pointer;
 }
 
 .view-toggle button.active {
@@ -272,24 +339,33 @@ body {
     color: #3498db;
     text-decoration: none;
     font-size: 12px;
+    cursor: pointer;
 }
 
 .photo-stats {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
 }
 
 .rating {
     display: flex;
-    gap: 15px;
+    align-items: center;
+    gap: 10px;
 }
 
-.like-btn, .dislike-btn {
-    background: none;
-    border: none;
-    cursor: default;
-    color: #666;
+.rating-select {
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.rating-avg {
+    color: #f39c12;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .comments-count {
@@ -326,7 +402,7 @@ body {
     color: white;
     border: none;
     border-radius: 3px;
-    cursor: default;
+    cursor: pointer;
 }
 
 .add-comment input:disabled {
@@ -345,7 +421,7 @@ body {
     border-radius: 5px;
     color: #3498db;
     font-weight: 600;
-    cursor: default;
+    cursor: pointer;
 }
 
 /* ========== СТРАНИЦА АЛЬБОМОВ ========== */
@@ -399,16 +475,6 @@ body {
     margin-bottom: 25px;
 }
 
-.create-album-btn {
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 5px;
-    font-weight: 600;
-    cursor: default;
-}
-
 /* ========== СТРАНИЦА ПРОФИЛЯ ========== */
 .profile-header-block {
     background: white;
@@ -445,16 +511,6 @@ body {
     color: #3498db;
 }
 
-.edit-profile-btn {
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 5px;
-    margin-top: 15px;
-    cursor: default;
-}
-
 .profile-tabs {
     display: flex;
     gap: 5px;
@@ -466,7 +522,7 @@ body {
     background: none;
     border: none;
     padding: 10px 20px;
-    cursor: default;
+    cursor: pointer;
     color: #666;
 }
 
@@ -508,7 +564,7 @@ body {
     color: #333;
     text-decoration: none;
     border-radius: 3px;
-    cursor: default;
+    cursor: pointer;
 }
 
 .admin-menu-item.active {
@@ -582,7 +638,7 @@ body {
     padding: 4px 8px;
     border: 1px solid #ddd;
     background: white;
-    cursor: default;
+    cursor: pointer;
     border-radius: 3px;
 }
 
@@ -599,25 +655,6 @@ body {
     border-top: 1px solid #ddd;
     text-align: center;
     color: #999;
-}
-
-/* ========== АДАПТИВНОСТЬ ========== */
-@media (max-width: 768px) {
-    .main-content, .admin-container {
-        flex-direction: column;
-    }
-    .sidebar, .admin-sidebar {
-        width: 100%;
-    }
-    .photo-grid, .album-grid, .user-photos-grid {
-        grid-template-columns: 1fr;
-    }
-    .stats-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    .search-form input {
-        width: 150px;
-    }
 }
 
 /* ========== МОДАЛЬНЫЕ ОКНА ========== */
@@ -706,6 +743,10 @@ body {
     font-size: 14px;
 }
 
+.modal-description {
+    color: #666;
+}
+
 .modal-photo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -731,7 +772,7 @@ body {
     transform: scale(1.05);
 }
 
-
+/* ========== ФОРМЫ ========== */
 .form-group {
     margin-bottom: 15px;
 }
@@ -756,7 +797,7 @@ body {
     border-color: #3498db;
 }
 
-
+/* ========== КНОПКИ ========== */
 .btn-primary {
     padding: 10px 20px;
     background: #3498db;
@@ -777,6 +818,34 @@ body {
     cursor: not-allowed;
 }
 
+.btn-full {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-success {
+    background: #2ecc71;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #27ae60;
+}
+
+.btn-secondary {
+    background: #95a5a6;
+    color: white;
+    margin-top: 5px;
+}
+
+.btn-secondary:hover {
+    background: #7f8c8d;
+}
+
 .btn-view-album {
     display: inline-block;
     margin-top: 10px;
@@ -793,29 +862,39 @@ body {
     background: #e0e0e0;
 }
 
-/* nav bar*/
-.header-nav {
-    display: flex;
-    gap: 15px;
-}
-
-.nav-link {
-    padding: 8px 15px;
-    text-decoration: none;
-    color: #666;
+/* ========== АВТОРИЗАЦИЯ ========== */
+.auth-container {
+    max-width: 400px;
+    margin: 100px auto;
+    background: white;
+    padding: 30px;
     border-radius: 5px;
-    font-weight: 500;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.nav-link.active {
-    background: #3498db20;
-    color: #3498db;
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.nav-link:hover {
-    background: #f0f0f0;
+.auth-link {
+    margin-top: 15px;
+    text-align: center;
 }
 
+.auth-error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.auth-success {
+    color: green;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* ========== СОСТОЯНИЯ ========== */
 .empty-state {
     text-align: center;
     color: #999;
@@ -829,8 +908,110 @@ body {
     padding: 20px;
 }
 
-/* адаптивки*/
+/* ========== ЗАГЛУШКИ ДЛЯ SVG-ИКОНОК ========== */
+.logo-icon,
+.nav-icon,
+.search-icon,
+.avatar-placeholder,
+.avatar-placeholder-large,
+.dropdown-icon,
+.view-icon,
+.btn-icon,
+.meta-icon,
+.stat-icon,
+.tab-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background: #ddd;
+    border-radius: 3px;
+}
+
+.avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.avatar-placeholder-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+}
+
+.logo-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+}
+
+.nav-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
+
+.search-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+}
+
+.dropdown-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+}
+
+.view-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    background: rgba(255,255,255,0.3);
+}
+
+.meta-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+}
+
+.stat-icon {
+    width: 18px;
+    height: 18px;
+    margin-bottom: 4px;
+}
+
+.tab-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
 @media (max-width: 768px) {
+    .main-content, .admin-container {
+        flex-direction: column;
+    }
+    .sidebar, .admin-sidebar {
+        width: 100%;
+    }
+    .photo-grid, .album-grid, .user-photos-grid {
+        grid-template-columns: 1fr;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .search-form input {
+        width: 150px;
+    }
     .modal-content {
         width: 95%;
         max-height: 90vh;
